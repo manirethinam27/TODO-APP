@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Task = require('./modules/modules');
 const path = require('path');
 const { error } = require('console');
-const port = 3000;
+const port = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 
 mongoose.connect("mongodb://localhost:27017/todolist").then(() => {
@@ -54,7 +54,6 @@ app.delete('/delete/:id', async (req, res) => {
     }
 });
 
-
 app.listen(port, () => {
-    console.log('run at 3000 port');
+    console.log(`run at ${port}`);
 });
