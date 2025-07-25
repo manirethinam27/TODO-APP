@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title TODO APP
+    link(rel="stylesheet", href="/style.css")
+  body 
+    div(class="big")
+        div(class="box")
+            h1 TO-DO APP
+            hr
+            form(action="/add", method="post") 
+                input(type="text" name="taskName" placeholder="Enter task")
+                button(type="submit") add
+
+            ul
+                if !tasks.length == 0
+                    each task in tasks
+                        li
+                            h3 #{task.task}
+                            form(action="/delete/" + task._id + "?_method=DELETE", method="POST", onsubmit="return confirm('Are you sure you want to delete this task?');")
+                                    button(type="submit") Delete
+                else 
+                    li list is empty
