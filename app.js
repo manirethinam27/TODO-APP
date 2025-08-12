@@ -7,7 +7,7 @@ const { error } = require('console');
 const port = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 
-mongoose.connect("mongodb://localhost:27017/").then(() => {
+mongoose.connect("mongodb+srv://manirethinam2005:mani122005@cluster0.qt2tkwm.mongodb.net/todolist?retryWrites=true&w=majority&appName=Cluster0").then(() => {
     console.log("db connected");
 }).catch(err => {
     console.log("db not connected", err);
